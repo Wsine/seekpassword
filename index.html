@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wsine - 觅密</title>
+  <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" media="screen,projection"/>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="input-field col-12 col-sm-12 col-md-8 col-lg-6">
+        <form>
+          <div class="form-group">
+            <label for="pwd">记忆密码</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Memory Password" value="">
+          </div>
+          <div class="form-group">
+            <label for="key">区分代码</label>
+            <input type="text" class="form-control" id="key" placeholder="Distinguishing Code" value="">
+          </div>
+          <div class="form-group">
+            <label for="code">加密密码</label>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="code" placeholder="Encrypted Password" value="">
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="button" data-clipboard-target="#code">复制</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row justify-content-center">
+              <button class="btn btn-primary" type="button" id="btn_gencode">生成密码</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/clipboard.min.js"></script>
+  <script type="text/javascript" src="js/md5.min.js"></script>
+  <script type="text/javascript" src="src/seek_password.js"></script>
+  <script type="text/javascript">
+    var clipboard = new ClipboardJS(".btn");
+    document.getElementById("btn_gencode").onclick = function() {
+      var pwd = document.getElementById("pwd").value;
+      var key = document.getElementById("key").value;
+      var sk_pwd = generate_password(pwd, key);
+      if (sk_pwd) {
+        document.getElementById("code").value = sk_pwd;
+      }
+    }
+  </script>
+</body>
+</html>
