@@ -1,3 +1,4 @@
+// refer from https://flowerpassword.com
 function flower_password(pwd, key) {
 	var md5one = md5(pwd, key);
 	var md5two = md5(md5one, "snow");
@@ -63,6 +64,6 @@ function generate_password() {
 		var hash = fl_pwd[1];
 		console.assert(hash.length === 32, "flower_password output length not equal to 32");
 		var sk_pwd = seek_password(hash);
-		document.getElementById("code").value = sk_pwd;
+        return sk_pwd;
 	}
 }
