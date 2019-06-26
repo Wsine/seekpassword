@@ -57,7 +57,7 @@
       var sk_pwd = generate_password(pwd, key);
       if (sk_pwd) {
 		if (document.getElementById("cb_remove").checked == true) {
-          document.getElementById("code").value = sk_pwd.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+          document.getElementById("code").value = sk_pwd.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "");
         } else {
           document.getElementById("code").value = sk_pwd;
         }
