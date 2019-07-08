@@ -56,9 +56,7 @@ function seek_password(hash) {
 	return "";
 }
 
-function generate_password() {
-	var pwd = document.getElementById("pwd").value;
-	var key = document.getElementById("key").value;
+function generate_password(pwd, key) {
 	if (pwd && key) {
 		var fl_pwd = flower_password(pwd, key);
 		var hash = fl_pwd[1];
