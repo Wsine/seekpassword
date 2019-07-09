@@ -13,7 +13,12 @@
         <form>
           <div class="form-group">
             <label for="pwd">记忆密码</label>
+            <div class="input-group mb-3">
             <input type="password" class="form-control" id="pwd" placeholder="Memory Password" value="">
+				<div class="input-group-append">
+					<button class="btn btn-secondary" type="button" id="btn_toggle">切换Toggle</button>
+				</div>
+			</div>
           </div>
           <div class="form-group">
             <label for="key">区分代码</label>
@@ -51,6 +56,13 @@
   <script type="text/javascript" src="src/seek_password.js"></script>
   <script type="text/javascript">
     var clipboard = new ClipboardJS("#btn_copy");
+	document.getElementById("btn_toggle").onclick = function() {
+		if (document.getElementById("pwd").type=="password") {
+			document.getElementById("pwd").type="text";
+		} else {
+			document.getElementById("pwd").type="password";
+		}
+	}
     document.getElementById("btn_gencode").onclick = function() {
       var pwd = document.getElementById("pwd").value;
       var key = document.getElementById("key").value;
