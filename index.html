@@ -6,7 +6,7 @@
   <title>Wsine - 觅密</title>
   <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" media="screen,projection"/>
 </head>
-<body>
+<body ondrop="drop(event)" ondragover="allowDrop(event)">
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="input-field col-12 col-sm-12 col-md-8 col-lg-6">
@@ -62,6 +62,19 @@
           document.getElementById("code").value = sk_pwd;
         }
       }
+    }
+    function drop(e){
+      var data = e.dataTransfer.getData("text");
+      document.getElementById("key").value = data;
+      document.getElementById("btn_gencode").click();
+      setTimeout(
+        document.getElementById("btn_copy").click(),
+        300
+      )
+    }
+    function allowDrop(e)
+    {
+      e.preventDefault();
     }
   </script>
 </body>
