@@ -61,6 +61,14 @@
         } else {
           document.getElementById("code").value = sk_pwd;
         }
+        var successText = document.getElementById("btn_copy");
+        clipboard.on("success", function() {
+          successText.innerHTML = "复制好了";
+          console.log("success")
+        });
+        clipboard.on("error", function() {
+          console.log("failed")
+        });
       }
     }
   </script>
